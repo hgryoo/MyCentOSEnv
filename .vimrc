@@ -30,6 +30,12 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'nanotech/jellybeans.vim'
+
+"for C dev
+Plugin 'xolox/vim-easytags'
+Plugin 'ronakg/quickr-cscope.vim'
+Plugin 'majutsushi/tagbar'
+
 call vundle#end()            " required
 "filetype plugin indent on    " required
 "NERDTree ON 단축키를 "\nt"로 설정
@@ -93,3 +99,24 @@ augroup markdown
     " set every new or read *.md buffer to use the markdown filetype
     autocmd BufRead,BufNew *.md setf markdown
 augroup END
+
+" for ctags
+set tag=./tags;/
+let g:easytags_async=1
+let g:easytags_auto_highlight = 0
+let g:easytags_include_members = 1
+let g:easytags_dynamic_files = 1
+
+function! LoadCscope() 
+    let db = findfile("cscope.out", ".;")
+    if (!empty(db)) 
+        let path = strpart(db, 0, match(db, "/cscope.out$"))
+        set nocscopeverbose " suppress 'duplicate connection' error
+        exe "cs add " . db . " " . path
+        set cscopeverbose
+        " else add the database pointed to by environment variable
+    elseif $CSCOPE_DB != ""
+        cs add $CSCOPE_DB
+    endif
+endfunction
+au BufEnter /* call LoadCscope()

@@ -22,7 +22,7 @@ Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
+Plugin 'ascenator/L9', {'name': 'newL9'}
 " All of your Plugins must be added before the following line
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
@@ -52,6 +52,7 @@ color jellybeans
 filetype on                                 "vim filetype on
 "Source Explorer 환경설정
 nmap <F8> :SrcExplToggle<CR>                "F8 Key = SrcExpl Toggling
+nmap <F9> :TagbarToggle<CR>                 "F9 Key = Tagbar Toggle
 nmap <C-H> <C-W>h                           "왼쪽 창으로 이동
 nmap <C-J> <C-W>j                           "아래 창으로 이동
 nmap <C-K> <C-W>k                           "윗 창으로 이동

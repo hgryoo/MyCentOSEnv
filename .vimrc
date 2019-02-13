@@ -35,6 +35,7 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'xolox/vim-easytags'
 Plugin 'ronakg/quickr-cscope.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'xolox/vim-misc'
 
 call vundle#end()            " required
 "filetype plugin indent on    " required

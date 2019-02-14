@@ -6,7 +6,11 @@ if [ ! -d $VUNDLE_PATH ] ; then
     git clone https://github.com/VundleVim/Vundle.vim.git $VUNDLE_PATH
 fi
 
-cp ./.vimrc ~/.vimrc
+if [ $(id -u) = 0 ]; then
+    cp ./.vimrc /root/.vimrc
+else 
+    cp ./.vimrc ~/.vimrc
+fi
 
 vim +PluginInstall +qall
 

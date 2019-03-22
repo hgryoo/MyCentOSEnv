@@ -36,11 +36,22 @@ Plugin 'xolox/vim-easytags'
 Plugin 'ronakg/quickr-cscope.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'xolox/vim-misc'
+Plugin 'SrcExpl'
+Plugin 'taglist.vim'
+Plugin 'AutoComplPop'
+Plugin 'snipMate'
 
 call vundle#end()            " required
 "filetype plugin indent on    " required
-"NERDTree ON 단축키를 "\nt"로 설정
+
+" Leader
+let mapleader=","
+nnoremap <Leader>rc :rightbelow vnew $MYVIMRC<CR>
+
+" NERDTree
 map <Leader>nt <ESC>:NERDTree<CR>
+nnoremap <C-F> :NERDTreeFind<CR>
+
 let NERDTreeShowHidden=1
 " let NERDTreeQuitOnOpen=1
 let g:ctrlp_custom_ignore = {
@@ -122,3 +133,21 @@ function! LoadCscope()
     endif
 endfunction
 au BufEnter /* call LoadCscope()
+
+function! InsertTabWrapper()
+    let col=col('.')-1
+    if !col||getline('.')[col-1]!~'\k'
+        return "\<TAB>"
+    else
+        if pumvisible()
+            return "\<C-N>"
+        else
+            return "\<C-N>\<C-P>"
+        end 
+    endif
+endfunction
+
+inoremap <TAB> <c-r>=InsertTabWrapper()<cr>
+hi Pmenu ctermbg=blue
+hi PmenuSel ctermbg=yellow ctermbg=black
+hi PmenuSbar ctermbg=blue

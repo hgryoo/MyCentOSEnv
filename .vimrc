@@ -53,9 +53,6 @@ let mapleader=","
 nnoremap <Leader>rc :rightbelow vnew $MYVIMRC<CR>
 
 " NERDTree
-nmap <F7>:NERDTree<CR>
-nnoremap <C-F> :NERDTreeFind<CR>
-
 let NERDTreeShowHidden=1
 " let NERDTreeQuitOnOpen=1
 let g:ctrlp_custom_ignore = {
@@ -65,7 +62,10 @@ let g:ctrlp_custom_ignore = {
 color jellybeans
 " Tag List 환경설정
 filetype on                                 "vim filetype on
-"Source Explorer 환경설정
+
+"key map
+nmap <F7> :NERDTree<CR>
+nnoremap <C-F> :NERDTreeFind<CR>
 nmap <F8> :SrcExplToggle<CR>                "F8 Key = SrcExpl Toggling
 nmap <F9> :TagbarToggle<CR>                 "F9 Key = Tagbar Toggle
 nmap <C-H> <C-W>h                           "왼쪽 창으로 이동

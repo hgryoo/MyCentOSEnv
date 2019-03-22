@@ -7,10 +7,11 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
+
+"status bar
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-airline/vim-airline'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -23,13 +24,16 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
 Plugin 'ascenator/L9', {'name': 'newL9'}
-" All of your Plugins must be added before the following line
-Plugin 'vim-airline/vim-airline'
+
+" File search
 Plugin 'scrooloose/nerdtree'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/syntastic'
 Plugin 'ctrlpvim/ctrlp.vim'
+
+" Vim Color scheme
 Plugin 'nanotech/jellybeans.vim'
+
+"
+Plugin 'scrooloose/syntastic'
 
 "for C dev
 Plugin 'xolox/vim-easytags'
@@ -49,7 +53,7 @@ let mapleader=","
 nnoremap <Leader>rc :rightbelow vnew $MYVIMRC<CR>
 
 " NERDTree
-map <Leader>nt <ESC>:NERDTree<CR>
+nmap <F7>:NERDTree<CR>
 nnoremap <C-F> :NERDTreeFind<CR>
 
 let NERDTreeShowHidden=1
